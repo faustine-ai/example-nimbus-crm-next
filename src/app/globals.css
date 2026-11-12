@@ -1,0 +1,143 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/*
+ * Design tokens. Values are HSL triplets so the primary hue can be swapped at
+ * runtime (see the [data-color] presets below and src/lib/theme.ts).
+ */
+:root {
+  --background: 210 40% 98%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --primary: 199 89% 56%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 222 47% 11%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+  --accent: 199 85% 94%;
+  --accent-foreground: 199 89% 36%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 199 89% 56%;
+  --radius: 0.65rem;
+}
+
+/*
+ * Primary color presets (Settings → Appearance). The attribute is set on
+ * <html> before first paint by an inline script. Accent is a light tint of the
+ * same hue and the focus ring matches the primary.
+ */
+[data-color="sky"] {
+  --primary: 199 89% 56%;
+  --ring: 199 89% 56%;
+  --accent: 199 89% 94%;
+  --accent-foreground: 199 89% 30%;
+}
+[data-color="blue"] {
+  --primary: 217 91% 60%;
+  --ring: 217 91% 60%;
+  --accent: 217 91% 94%;
+  --accent-foreground: 217 91% 30%;
+}
+[data-color="indigo"] {
+  --primary: 243 75% 59%;
+  --ring: 243 75% 59%;
+  --accent: 243 75% 94%;
+  --accent-foreground: 243 75% 30%;
+}
+[data-color="violet"] {
+  --primary: 262 83% 58%;
+  --ring: 262 83% 58%;
+  --accent: 262 83% 94%;
+  --accent-foreground: 262 83% 30%;
+}
+[data-color="teal"] {
+  --primary: 173 80% 36%;
+  --ring: 173 80% 36%;
+  --accent: 173 80% 94%;
+  --accent-foreground: 173 80% 30%;
+}
+[data-color="emerald"] {
+  --primary: 160 84% 39%;
+  --ring: 160 84% 39%;
+  --accent: 160 84% 94%;
+  --accent-foreground: 160 84% 30%;
+}
+[data-color="amber"] {
+  --primary: 38 92% 50%;
+  --ring: 38 92% 50%;
+  --accent: 38 92% 94%;
+  --accent-foreground: 38 92% 30%;
+}
+[data-color="orange"] {
+  --primary: 25 95% 53%;
+  --ring: 25 95% 53%;
+  --accent: 25 95% 94%;
+  --accent-foreground: 25 95% 30%;
+}
+[data-color="rose"] {
+  --primary: 346 77% 50%;
+  --ring: 346 77% 50%;
+  --accent: 346 77% 94%;
+  --accent-foreground: 346 77% 30%;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/* Thin, subtle scrollbars for the app shell. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-border;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}

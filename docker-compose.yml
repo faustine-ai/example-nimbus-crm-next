@@ -1,0 +1,27 @@
+# Production build in a single container on port 3000.
+#
+#   docker compose up --build
+#   open http://localhost:3000   (login: admin@crm.test / admin123)
+#
+# Start over with a fresh database:
+#   docker compose down -v
+
+services:
+  crm:
+    build: .
+    container_name: nimbus-crm-next
+    ports:
+      - "3000:3000"
+    environment:
+      # Change this in any non-local deployment.
+      SESSION_SECRET: "local-dev-secret-change-me"
+      DB_PATH: "/app/data/crm.db"
+      # This stack serves plain HTTP; remove when running behind HTTPS.
+      COOKIE_SECURE: "false"
+    volumes:
+      # Persist the SQLite database across container restarts.
+      - crm-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  crm-data:

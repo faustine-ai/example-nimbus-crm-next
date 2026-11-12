@@ -1,0 +1,30 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+
+# local database (created and seeded on first run)
+/data/
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+
+# env files (.env.example is committed)
+.env
+.env*.local
+.env.development
+.env.production
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+/coverage
+.vercel
