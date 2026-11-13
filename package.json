@@ -1,8 +1,8 @@
 {
-  "name": "demo-nimbus-crm-next",
+  "name": "example-nimbus-crm-next",
   "version": "1.0.0",
   "private": true,
-  "description": "Nimbus CRM: the Next.js version of demo-nimbus-crm",
+  "description": "Nimbus CRM: the Next.js version of example-nimbus-crm",
   "engines": {
     "node": ">=22"
   },

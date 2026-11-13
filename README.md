@@ -4,7 +4,7 @@ A modern, lightweight CRM for small and medium-sized businesses: contacts,
 companies, a drag-and-drop sales pipeline, invoices, tasks, notes and a live
 activity feed.
 
-This is the **Next.js version of `demo-nimbus-crm`**. The original is a React
+This is the **Next.js version of [`example-nimbus-crm`](https://github.com/faustine-ai/example-nimbus-crm)**. The original is a React
 single-page app talking to an Express REST API over `fetch` and WebSockets.
 This one is the same product, with the same screens, database schema and demo
 data, rebuilt on the Next.js App Router: Server Components read the data,
